@@ -19,14 +19,14 @@
 # update.sh
 ##########################################################################
 # This script is executed by the auto_run.sh when a new version is found
-# at https://github.com/MycroftAI/enclosure-picroft/tree/buster
+# at https://github.com/roisy/enclosure-picroft/tree/buster
 
-REPO_PATH="https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster"
+REPO_PATH="https://raw.githubusercontent.com/roisy/enclosure-picroft/buster"
 
 if [ ! -f /etc/mycroft/mycroft.conf ] ;
 then
     # Assume this is a fresh install, setup the system
-    echo "Would you like to install Picroft on this machine?"
+    echo "Would you like to install Eevaa on this machine?"
     echo -n "Choice [Y/N]: "
     read -N1 -s key
     case $key in
@@ -43,7 +43,7 @@ then
     sudo mkdir -p /etc/mycroft/
     mkdir -p ~/bin
 
-    # Get the Picroft conf file
+    # Get the Eevaa conf file
     cd /etc/mycroft
     sudo wget -N $REPO_PATH/etc/mycroft/mycroft.conf
 
@@ -91,7 +91,7 @@ fi
 # update software
 echo "Updating Picroft scripts"
 cd ~
-wget -N $REPO_PATH/home/pi/.bashrc
+#wget -N $REPO_PATH/home/pi/.bashrc
 wget -N $REPO_PATH/home/pi/auto_run.sh
 wget -N $REPO_PATH/home/pi/version
 wget -N $REPO_PATH/home/pi/update.sh  # updated within auto_run.sh, but download in case run directly

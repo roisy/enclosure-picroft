@@ -210,11 +210,11 @@ function update_software() {
     # Look for internet connection.
     if ping -q -c 1 -W 1 1.1.1.1 >/dev/null 2>&1
     then
-        echo "**** Checking for updates to Picroft environment"
+        echo "**** Checking for updates to Eevaa environment"
         echo "This might take a few minutes, please be patient..."
 
         cd /tmp
-        wget -N -q https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster/home/pi/version >/dev/null
+        wget -N -q https://raw.githubusercontent.com/roisy/enclosure-picroft/buster/home/pi/version >/dev/null
         if [ $? -eq 0 ]
         then
             if [ ! -f ~/version ] ; then
@@ -225,10 +225,10 @@ function update_software() {
             if  [ $? -eq 1 ]
             then
                 # Versions don't match...update needed
-                echo "**** Update found, downloading new Picroft scripts!"
-                speak "Updating Picroft, please hold on."
+                echo "**** Update found, downloading new Eevaa scripts!"
+                speak "Updating Eevaa, please hold on."
 
-                wget -N -q https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster/home/pi/update.sh
+                wget -N -q https://raw.githubusercontent.com/roisy/enclosure-picroft/buster/home/pi/update.sh
                 if [ $? -eq 0 ]
                 then
                     source update.sh
